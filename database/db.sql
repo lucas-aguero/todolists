@@ -4,7 +4,7 @@ USE todolists;
 
 CREATE TABLE users (
 	id int(11) not null auto_increment,
-    email varchar(16) not null,
+    email varchar(50) not null,
     password varchar(60) not null,
     name_first varchar(30) not null,
     name_last varchar(30) not null,

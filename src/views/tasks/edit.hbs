@@ -1,0 +1,25 @@
+<div class="container p-3">
+  <div class="row">
+    <div class="row-md-4 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form action="/api/tasks/edit/{{taskEdit.id}}" method="post" class="form-inline">
+            <div class="form-group p-2">
+                {{#if taskEdit.task_done }}
+                  <input type="checkbox" checked class="form-control" name="task_done"/>
+                {{else}}
+                  <input type="checkbox" class="form-control" name="task_done"/>
+                {{/if}}            
+            </div>
+            <div class="form-group p-2">
+              <input type="text" value="{{taskEdit.task_title}}" class="form-control" name="task_title" placeholder="tasks" autofocus/>
+            </div>
+            <div class="form-group p-2">
+              <button class="btn btn-success btn-block p-2"><i class="bi-file-plus"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

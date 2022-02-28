@@ -1,0 +1,49 @@
+<div class="container p-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Folder Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each foldersList}}
+        <tr>
+          <th scope="row">
+          {{folder_name}}
+          </th>
+          <td>
+            <a href="/api/tasks/tasksbyfolder/{{id}}+{{folder_name}}" class="btn btn-warning"><i class="bi-eye"></i></a>
+            <a href="/api/folders/delete/{{id}}" class="btn btn-danger"><i class="bi-eraser"></i></a>
+            <a href="/api/folders/edit/{{id}}" class="btn btn-primary"><i class="bi-pencil"></i></a>
+          </td>
+        </tr>
+      {{else}}
+        <div class="col-md-4 mx-auto">
+          <div class="card card-body text-center">
+            <p>Folders List is empty</p>
+          </div>
+        </div>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div class="container p-3">
+  <div class="row">
+    <div class="row-md-4 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form action="/api/folders/add" method="post" class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" name="folder_name" placeholder="Add New Folder" autofocus/>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-block"  title="Add new folder"><i class="bi-file-plus"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

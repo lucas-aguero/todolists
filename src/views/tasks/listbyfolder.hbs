@@ -1,0 +1,78 @@
+<div class="container p-3">
+  <table class="table">
+    <h1>Folder -> {{folderName}}</h1>
+    <thead>
+      <tr>
+        <th scope="col">Done</th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Folder Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each tasksList}}
+        <tr>
+          <th scope="row">
+            {{#if task_done}}
+              <a href="/api/tasks/inlistedit/{{id}}">
+                <div class="form-check mx-auto align-middle">
+                  <input
+                    class="form-check-input"
+                    checked
+                    name="task_done"
+                    type="checkbox"
+                  />
+                </div>
+              </a>
+            {{else}}
+              <a href="/api/tasks/inlistedit/{{id}}">
+                <div class="form-check mx-auto align-middle">
+                  <input
+                    class="form-check-input"
+                    name="task_done"
+                    type="checkbox"
+                  />
+                </div>
+              </a>
+            {{/if}}
+          </th>
+          <td><a href="/api/tasks/inlistedit/{{id}}">{{task_title}}</td></a>
+          <td>{{folder_name}}</td>
+          <td>
+            <a href="/api/tasks/edit/{{id}}" class="btn btn-primary"><i
+                class="bi-pencil"
+              ></i></a>
+            <a href="/api/tasks/delete/{{id}}+{{folder_id}}+{{folder_name}}"  class="btn btn-danger"><i
+                class="bi-eraser"
+              ></i></a>
+          </td>
+        </tr>
+      {{else}}
+        <div class="col-md-4 mx-auto">
+          <div class="card card-body text-center">
+            <p>Tasks List is empty</p>
+          </div>
+        </div>
+      {{/each}}
+
+    </tbody>
+  </table>
+</div>
+<div class="container p-3">
+  <div class="row">
+    <div class="row-md-4 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form action="/api/tasks/add/{{folderId}}+{{folderName}}" method="post" class="form-inline">
+            <div class="form-group p-2">
+              <input type="text" class="" name="task_title" placeholder="Add a New Task" autofocus/>
+            </div>
+            <div class="form-group p-2">
+              <button class="btn btn-success btn-block" title="Add new task"><i class="bi-file-plus"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

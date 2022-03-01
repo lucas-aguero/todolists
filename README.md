@@ -8,7 +8,7 @@ System is deployed live in
 https://todolists-ensonverls.herokuapp.com
 
 Live Version is served by
-    * https://www.heroku.com/
+    * https://www.heroku.com
     * https://remotemysql.com
 
 

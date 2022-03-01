@@ -1,6 +1,6 @@
-CREATE DATABASE todolists;
+CREATE DATABASE todolists_lucasaguero;
 
-USE todolists;
+USE todolists_lucasaguero;
 
 CREATE TABLE users (
 	id int(11) not null auto_increment,
